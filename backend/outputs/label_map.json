@@ -1,0 +1,14 @@
+{
+  "classes": [
+    "glioma",
+    "meningioma",
+    "notumor",
+    "pituitary"
+  ],
+  "class_counts": [
+    1183,
+    1201,
+    1447,
+    1310
+  ]
+}

@@ -1,0 +1,25 @@
+services:
+  # The Backend API Service (built from the Dockerfile in ./backend)
+  api:
+    build: ./backend
+    restart: unless-stopped
+    env_file:
+      - .env # Hugging Face will inject secrets into this
+      
+  # The Frontend Service (built from the Dockerfile in ./frontend)
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - api
+
+  # The Reverse Proxy to manage public traffic
+  proxy:
+    image: nginx:stable-alpine
+    ports:
+      - "7860:7860" # The single port exposed by Hugging Face
+    volumes:
+      - ./nginx.proxy.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - api
+      - frontend

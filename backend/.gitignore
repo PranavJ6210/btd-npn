@@ -1,0 +1,19 @@
+# Python Virtual Environment
+venv/
+/venv
+
+# Python Cache Files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local Secrets File
+.env
+
+# Uploaded Media from Local Testing
+/uploads
+
+# IDE/Editor Configuration
+.vscode/
+.idea/
